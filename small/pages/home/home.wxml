@@ -1,0 +1,36 @@
+<!--pages/home/home.wxml-->
+<import src='./../component/header/header.wxml'/>
+<view class="main">
+  <view class='header'>
+  <text class='title'>小程序</text>
+    <image src='/images/icon/portrait.png'></image>
+  </view>
+  <template is='recom' data="{{index}}" />
+  <scroll-view class="scrollWrap"
+    scroll-y
+    bindscrolltolower="toBottom"
+  >
+  <swiper
+  indicator-dots=true,
+  autoplay=true,
+  interval:2000,
+  circular=true
+  >
+     <block wx:for="{{musData.slider}}" wx:for-item="item" wx:key='{{index}}'>
+        <swiper-item>
+          <image src="{{item.picUrl}}" mode='aspectFill' class='img' lazy-load='true'></image>
+        </swiper-item>
+     </block>
+  </swiper>
+  <view class='hot'>热门歌单推荐</view>
+  <view class="listWrap">
+    <view wx:for="{{musData.songList}}" class="list-item" wx:key='{{index}}'>
+      <image src="{{item.picUrl}}" lazy-load></image>
+      <view class="list-item-desc">
+        <text class="desc">{{item.songListDesc}}</text>
+        <text class="author">{{item.songListAuthor}}</text>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>
