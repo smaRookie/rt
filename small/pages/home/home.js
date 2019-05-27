@@ -1,4 +1,5 @@
 // pages/home/home.js
+import * as methods from './../js/header.js'
 Page({
 
   /**
@@ -106,9 +107,6 @@ Page({
   },
   // 传递顶部按钮的标签
   changeIndex (event) {
-    let _index = event.currentTarget.dataset.headeritemindex
-    this.setData({
-      index: _index
-    })
+    methods.changeIndex(event)
   }
 })

@@ -5,33 +5,9 @@
   min-height: 100vh;
   background-color: #222;
 }
-.main .header {
-  height: 80rpx;
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  align-items: center;
-  background-color: #222;
-  box-sizing: border-box;
-  padding-right: 20rpx;
-  text-align: center;
-  color: #ffcd32;
-}
 .main .scrollWrap {
   height: calc(100vh - 160rpx);
   /* overflow: hidden; */
-}
-.main .title {
-  padding-left: 40rpx;
-}
-.main .header text {
-  width: 100%;
-  font-size: 14px;
-  text-align: center;
-}
-.main .header image {
-  height: 50rpx;
-  width: 50rpx;
 }
 .main .img {
   width: 100%;
