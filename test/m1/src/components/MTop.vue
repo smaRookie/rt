@@ -3,7 +3,7 @@
     <span>新绿洲医药</span>
     <span class="user">
       <img :src=src alt="">
-      <span>{{user}}</span>
+      <span>{{user}}<Icon type="md-power" style="margin-bottom: 4px;margin-left: 10px;" @click="exit"/></span>
     </span>
   </div>
 </template>
@@ -19,6 +19,11 @@ export default {
     user: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    exit () {
+      this.$router.push('/')
     }
   }
 }
@@ -39,4 +44,11 @@ export default {
   .user
     color: #fff;
     font-size 16px;
+    display flex
+    justify-content center
+    align-items center
+    span
+      display flex
+      justify-content center
+      align-items center
 </style>

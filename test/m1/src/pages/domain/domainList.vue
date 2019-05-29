@@ -15,13 +15,15 @@
     <Modal
       v-model="modelShow"
       title="上下号操作"
+      mask-closable:false
+      :loading="btnLoadingShow"
       @on-ok="submit"
       @on-cancel="cancel">
       <div class="model-wrap">
         <span>
           网页地址：
         </span>
-        <Input placeholder="请输入页面地址" style="width: auto" disabled v-model="wechatNumber.url">
+        <Input placeholder="请输入页面地址" style="width: auto" disabled v-model="currentItem.domainUrl">
           <Icon type="ios-link" slot="prefix" />
         </Input>
       </div>
@@ -29,13 +31,13 @@
         <span>
           页面微信：
         </span>
-        <Input placeholder="请输入页面微信号，以英文逗号分隔" style="width: auto" v-model="wechatNumber.current">
+        <Input placeholder="请输入页面微信号，以英文逗号分隔" style="width: auto" v-model="currentItem.domainPagewx">
           <Icon type="ios-chatbubbles-outline" slot="prefix" />
         </Input>
       </div>
       <div class="model-wrap">
         <span>跳转微信：</span>
-        <Input placeholder="请输入跳转页面微信，以英文逗号分隔" style="width: auto" v-model="wechatNumber.jump">
+        <Input placeholder="请输入跳转页面微信，以英文逗号分隔" style="width: auto" v-model="currentItem.domainJumpwx">
           <Icon type="ios-chatbubbles" slot="prefix" />
         </Input>
       </div>
@@ -53,14 +55,11 @@ export default {
       search: '',
       total: 0,
       keyword: '',
+      btnLoadingShow: true,
       page: 1,
       pageSize: 10,
       modelShow: false, // 对话框的显示
-      wechatNumber: {
-        url: '',
-        current: '',
-        jump: ''
-      },
+      currentItem: {},
       columns1: [
         {
           title: '标识',
@@ -98,18 +97,7 @@ export default {
                     this.show(params)
                   }
                 }
-              }, '编辑'),
-              h('Button', {
-                props: {
-                  type: 'error',
-                  size: 'small'
-                },
-                on: {
-                  click: () => {
-                    this.remove(params.index)
-                  }
-                }
-              }, '删除')
+              }, '上下号')
             ])
           }
         }
@@ -137,15 +125,33 @@ export default {
       this.getDomainList()
     },
     submit () {
-      this.modelShow = false
+      var data = new URLSearchParams()
+      data.append('token', this.token)
+      data.append('timestamp', new Date().getTime())
+      data.append('sign', this.sign)
+      data.append('domainKey', this.currentItem.domainKey)
+      data.append('domainPagewx', this.currentItem.domainPagewx)
+      data.append('domainJumpwx', this.currentItem.domainJumpwx)
+      this.$axios.post(`/api/v2/domain/setdsnwx`, data).then((res) => {
+        if (res.data.result_code === 200) {
+          this.$Message.success('修改成功')
+          this.getDomainList()
+          this.currentItem = {}
+        } else {
+          this.$Message.error('修改失败，请重试')
+        }
+        this.modelShow = false
+      }).catch(() => {
+        this.$Message.error('修改失败，请重试')
+        this.modelShow = false
+      })
     },
     cancel () {
       this.modelShow = false
     },
     show (val) {
-      this.wechatNumber.url = val.row.domainUrl
-      this.wechatNumber.current = val.row.domainPagewx
-      this.wechatNumber.jump = val.row.domainJumpwx
+      this.currentItem = Object.assign({}, val.row)
+      // this.currentItem = val.row
       this.modelShow = true
       console.log(val)
     },
