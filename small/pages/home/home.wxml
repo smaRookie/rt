@@ -24,11 +24,11 @@
   </swiper>
   <view class='hot'>热门歌单推荐</view>
   <view class="listWrap">
-    <view wx:for="{{musData.songList}}" class="list-item" wx:key='{{index}}'>
-      <image src="{{item.picUrl}}" lazy-load></image>
+    <view wx:for="{{list}}" class="list-item" wx:key='{{index}}' catchtap="toDetail" data-item-msg="{{item.dissid}}">
+      <image src="{{item.imgurl}}" lazy-load></image>
       <view class="list-item-desc">
-        <text class="desc">{{item.songListDesc}}</text>
-        <text class="author">{{item.songListAuthor}}</text>
+        <text class="desc">{{item.creator.name}}</text>
+        <text class="author">{{item.dissname}}</text>
       </view>
     </view>
   </view>

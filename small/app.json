@@ -5,13 +5,17 @@
     "pages/logs/logs",
     "pages/singer/singer",
     "pages/rank/rank",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/hDetail/hDetail",
+    "pages/mine/mine",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "音乐小程序",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#666",
@@ -25,6 +29,14 @@
       },
       {
         "pagePath": "pages/singer/singer",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/search/search",
         "text": "日志"
       }
     ],

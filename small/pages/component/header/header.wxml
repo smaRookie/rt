@@ -1,12 +1,12 @@
 <template name="recom">
   <view class='header'>
   <text class='title'>小程序</text>
-    <image src='/images/icon/portrait.png'></image>
+    <image src='/images/icon/portrait.png' catchtap='mine'></image>
   </view>
   <view class='header'>
     <text class="header-item {{index == 0 ? 'header-item-active':'' }}" catchtap="changeIndex" data-headerItemIndex='0'>推荐</text>
     <text class="header-item {{index == 1 ? 'header-item-active':'' }}" catchtap="changeIndex" data-headerItemIndex='1'>歌手</text>
-    <text class="header-item {{index == 2 ? 'header-item-active':'' }}" catchtap="changeIndex" data-headerItemIndex='2'>排行</text>
+    <text class="header-item {{index == 2 ? 'header-item-active':'' }}" bindtap="changeIndex" data-headerItemIndex='2'>排行</text>
     <text class="header-item {{index == 3 ? 'header-item-active':'' }}" catchtap="changeIndex" data-headerItemIndex='3'>搜索</text>
   </view>
 </template>

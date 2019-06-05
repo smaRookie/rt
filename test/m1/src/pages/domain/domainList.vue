@@ -16,6 +16,7 @@
       v-model="modelShow"
       title="上下号操作"
       mask-closable:false
+      scrollable
       :loading="btnLoadingShow"
       @on-ok="submit"
       @on-cancel="cancel">
