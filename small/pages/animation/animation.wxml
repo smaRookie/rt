@@ -1,0 +1,5 @@
+<view>
+  <view class="wrap" animation="{{animation}}"></view>
+  <view class="item" catchtap="rotate">旋转</view>
+  <view class="item" catchtap="download">下载</view>
+</view>

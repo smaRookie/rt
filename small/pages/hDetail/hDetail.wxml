@@ -1,0 +1,29 @@
+<view>
+  <view class="bk" style='background-image:url({{imgUrl}})'>
+    <view class="mask"></view>
+    <view catchtap="play" class="play">随机播放全部</view>
+  </view>
+  <scroll-view
+    scroll-y
+    scroll-with-animation
+    bindscroll=handleScroll
+    class="musicWrap"
+  >
+    <view class="">
+      <view 
+        wx:for="{{musicList}}"
+        wx:for-item="item"
+        wx:key="{{item}}"
+        wx:for-index="index"
+        class='music-item'
+      >
+        <view class="album-name">
+          {{item.albumname}}
+        </view>
+        <view class="singer-name">
+          {{item.singer[0].name}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

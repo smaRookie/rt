@@ -1,0 +1,15 @@
+<!--pages/rank/rank.wxml-->
+<import src='./../component/header/header.wxml'/>
+<view class="main">
+  <template is='recom' data="{{index}}" />
+  <view class="wrap">
+    <view class="wrap-item" wx:for="{{rankList}}" wx:for-item="item">
+      <image src="{{item.picUrl}}" class="img"></image>
+      <view class="wrap-item-desc">
+        <view wx:for="{{item.songList}}" wx:for-item="data" wx:for-index="index">
+          <view class='msg'>{{index + 1}}.{{data.songname}}-{{data.singername}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

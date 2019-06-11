@@ -8,6 +8,7 @@
     "pages/search/search",
     "pages/hDetail/hDetail",
     "pages/mine/mine",
+    "pages/animation/animation",
     "pages/map/map"
   ],
   "window": {

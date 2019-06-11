@@ -1,0 +1,12 @@
+/* pages/mine/mine.wxss */
+.wrap {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #222;
+}
+.item {
+  box-sizing: border-box;
+  padding: 6px 20rpx;
+  background-color: #333;
+  color: #fff;
+}
