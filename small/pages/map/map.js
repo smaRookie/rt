@@ -61,7 +61,7 @@ Page({
   onLoad: function (options) {
     this.init()
     wx.setBackgroundTextStyle({
-      textStyle: 'dark' // 下拉背景字体、loading 图的样式为dark
+      textStyle: 'dark' // 下拉背景字体、loading 图的样式为dark.
     })
     wx.setBackgroundColor({
       backgroundColorTop: '#333333', // 顶部窗口的背景色为白色
