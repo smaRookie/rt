@@ -1,0 +1,5 @@
+<!--pages/mine/mine.wxml-->
+<view class="wrap">
+  <view class="item" catchtap="toMap">地图</view>
+  <view class="item" catchtap="toAnimation">动画</view>
+</view>

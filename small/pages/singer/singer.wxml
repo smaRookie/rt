@@ -1,0 +1,40 @@
+<!--pages/singer/singer.wxml-->
+<import src='./../component/header/header.wxml'/>
+<view class="main">
+  <template is='recom' data="{{index}}" />
+  <scroll-view class='scroll-wrap'
+    scroll-y
+    scroll-top="100"
+    scroll-into-view="{{sideTice}}"
+  >
+    <view class="singer">
+      <view wx:for="{{singerList}}" wx:for-item="data" id="{{data.title}}" wx:key='{{data}}' class="singer-wrap">
+        <view class="singer-title">{{data.title == 'hot' ? '热门' : data.title}}</view>
+        <view wx:for="{{data.list}}" wx:for-item="item" wx:key='{{item}}'              class="singer-desc">
+          <image src="{{item.img}}" class="singer-img"></image>
+          <text class="singer-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 侧边栏 -->
+  <view class="side">
+    <view wx:for="{{singerList}}" 
+    wx:for-item="data"
+    wx:for-index="index"
+    wx:key="{{data}}"
+    catchtap='changeItem'
+    catchtouchstart='changeItem'
+    catchtouchmove='sideMove'
+    catchtouchend='sideEnd'
+    data-side-item="{{data.title}}"
+    data-side-index="{{index}}"
+    class="side-item {{sideTice == data.title ? 'side-item-active' : ''}}">
+      {{data.title == 'hot' ? '热' : data.title}}
+    </view>
+  </view>
+  <!-- 定位提示 -->
+  <view class="tice" wx:if="{{ticeShow}}">
+    {{sideTice == 'hot' ? '热' : sideTice}}
+  </view>
+</view>

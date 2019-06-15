@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/singer/singer",
+    "pages/rank/rank",
+    "pages/search/search",
+    "pages/hDetail/hDetail",
+    "pages/mine/mine",
+    "pages/animation/animation",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "音乐小程序",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#ffcd32",
+    "position": "bottom",
+    "backgroundColor": "#222",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/singer/singer",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "日志"
+      }
+    ],
+    "custom": false
+  },
+  "sitemapLocation": "sitemap.json"
+}
